@@ -1,45 +1,36 @@
-package com.company;
+import.java.util.Scanner;
 
-import java.util.Scanner;
+package com.company;
 public class Main {
 
     public static void main(String[] args) {
-
         Scanner input = new Scanner(System.in);
-        System.out.println("Welcome to University Student Admissions");
+        int Year;
+        int Second_Year;
+        int First_divisor;
+        int Second_divisor;
 
-        System.out.println("Please the students KCSE Grade Points: ");
-        double KcseGrades;
-        KcseGrades = input.nextDouble();
 
-        System.out.println("Enter the students Interview Score: ");
-        int InterviewScore;
-        InterviewScore = input.nextInt();
-        System.out.println("------------");
+        YearRange myFirstRange = new YearRange(1314, 2014);
+        myFirstRange.setRangeType(1);
 
-        System.out.println("Enter the students confidence Score: ");
-        int CofidenceScore;
-        CofidenceScore = input.nextInt();
-        System.out.println("-----------");
+        //Get all leap years.
+        YearRange mySecondRange = new YearRange(1100, 3150);
+        mySecondRange.setRangeType(2);
 
-        if (KcseGrades >= 0 && KcseGrades <= 100.0 && InterviewScore >= 0 && InterviewScore <=
-                10 && CofidenceScore >= 0 && CofidenceScore <= 10) {
-            if (KcseGrades >= 65.0 && InterviewScore >= 6 && CofidenceScore >= 5) {
-                System.out.println("Student is ACCEPTED to University!");
-                System.out.println("Students KCSE points are " + KcseGrades + " and students Interview score is "
-                        + InterviewScore + "and students confidence score is" + CofidenceScore);
-            } else {
-                System.out.println("Student is NOT ACCEPTED to university!");
-                System.out.println("Students KCSE points are " + KcseGrades + " and students Interview score is "
-                        + InterviewScore + "and students confidence score is" + CofidenceScore);
-            }
-        }
-        else{
-            System.out.println("Please Check KCSE Points, Interview score and Confidence score input!");
-            System.out.println("Your inputs are:");
-            System.out.println(InterviewScore + " = Interview Score should be between 0 and 10");
-            System.out.println(KcseGrades + " = KCSE points should be between 0 and 100.");
-            System.out.println(CofidenceScore + " = Confidence Score should be between 0 and 10");
+        //Get all Olympic years divisible by 3
+        YearRange myThirdRange = new YearRange(1500, 1890);
+        myThirdRange.setRangeType(3);
+
+
+        System.out.println(“List of all years divisible by“+ myFirstRange.getFirstDivisor() + “ and “ + myFirstRange.getSecondDivisor());
+        myFirstRange.printYears();
+
+
+        if(year%4 = 0){
+            System.out.println(“List of all leap years between ” + mySecondRange.getFirstYear() + “ and “ +mySecondRange.getSecondYear());
+            mySecondRange.printYears();
+            System.out.println(“List of all Olympic years between ” + myThirdRange.getFirstYear() + “ and “ + myThirdRange.getSecondYear() +“ that are divisible by “ + myThirdRange.getFirstDivisor());
+            myThirdRange.printYears();
         }
     }
-}
